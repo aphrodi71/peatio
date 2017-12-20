@@ -1,16 +1,13 @@
-development: &defaults
-  adapter: mysql2
-  encoding: utf8
-  database: peatio_development
-  username: root
-  password:
-  pool: 10
-  reconnect: true
-
-test:
-  <<: *defaults
-  database: peatio_test
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  # For details on connection pooling, see rails configuration guide
+  # http://guides.rubyonrails.org/configuring.html#database-pooling
+  pool: 5
 
 production:
-  <<: *defaults
-  database: peatio_production
+  <<: *default
+  username: postgres
+  password: password
+  database: new_peatio_production
+

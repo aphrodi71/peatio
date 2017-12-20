@@ -37,7 +37,7 @@ chmod +x rabbitmqadmin
 sudo mv rabbitmqadmin /usr/local/sbin
 sudo add-apt-repository 'deb http://archive.ubuntu.com/ubuntu trusty universe'
 sudo apt-get update
-sudo apt-get install -y mysql-server-5.6 redis-server libmysqlclient-dev
+#sudo apt-get install -y mysql-server-5.6 redis-server libmysqlclient-dev
 sudo apt-get install -y dirmngr gnupg
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 561F9B9CAC40B2F7
 sudo apt-get install -y apt-transport-https ca-certificates
@@ -61,7 +61,7 @@ echo "export RAILS_ENV=production" >> ~/.bashrc
 source ~/.bashrc
 mkdir -p ~/peatio
 #git clone https://github.com/ctubio/Krypto-trading-bot.git ~/K
-git clone https://github.com/scatterp/peatio.git ~/peatio/current
+git clone https://github.com/aphrodi71/peatio.git ~/peatio/current
 #git checkout testing01
 cd ~/peatio/current/
 pwd
@@ -75,8 +75,8 @@ sudo nano ~/peatio/current/config/database.yml
 dialog --msgbox "enter bitcoind user password settings and :q to save" 10 20
 sudo nano ~/peatio/current/config/currencies.yml
 cd ~/peatio/current/
-sudo /etc/init.d/mysql stop
-sudo /etc/init.d/mysql start
+sudo /etc/init.d/postgresql stop
+sudo /etc/init.d/postgresql start
 bundle exec rake db:setup
 bundle exec rake assets:precompile
 pwd
